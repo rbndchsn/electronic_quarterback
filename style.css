@@ -170,7 +170,9 @@ main {
 
 /* ---------- below the device ---------- */
 
-.start-hint { text-align: center; color: var(--muted); margin: 1.1rem 0 0.6rem; }
+.start-hint { text-align: center; color: var(--ink); font-weight: 600; min-height: 3em; margin: 1.1rem 0 0.4rem; }
+.key.nudge { animation: nudge 0.9s ease-in-out infinite; }
+@keyframes nudge { 50% { box-shadow: 0 5px 0 #0007, inset 0 2px 0 #ffffff40, 0 0 0 5px #ffb020; } }
 .start-hint strong { color: var(--ink); }
 
 .key-hint { text-align: center; color: var(--muted); font-size: 0.85rem; line-height: 2; margin: 0 0 0.9rem; }
@@ -229,4 +231,5 @@ kbd {
 
 @media (prefers-reduced-motion: reduce) {
   .key { transition: none; }
+  .key.nudge { animation: none; box-shadow: 0 5px 0 #0007, inset 0 2px 0 #ffffff40, 0 0 0 4px #ffb020; }
 }

@@ -148,6 +148,34 @@ function announce() {
     `Home ${game.score.home}, visitor ${game.score.visitor}.`;
 }
 
+// ---------- what-to-do-next prompt (outside the LED display) ----------
+
+const hint = $('hint');
+function hintText() {
+  switch (game.phase) {
+    case 'off':
+      return 'Slide the switch to 1 (beginner) or 2 (pro) to power on.';
+    case 'ready':
+      if (game.play.type === 'pass') return 'Move the receiver into the quarterback\'s row, then press K/P to throw.';
+      if (game.play.type === 'runback') return 'Short kickoff: press a move key to run it back.';
+      if (game.down === 4) return '4th down: press K/P to kick, or press a move key to run.';
+      return 'Press a move key to start the play.';
+    case 'dead':
+      return dHeld ? 'Release D to line up the next play.' : 'Play over. Hold D, then release, to line up the next play.';
+    case 'quarterEnd':
+      return 'End of the quarter. Hold D, then release, to continue.';
+    case 'gameOver':
+      return 'Game over. Switch off, then on, for a new game.';
+    default:
+      return '';
+  }
+}
+function updateHint() {
+  const text = hintText();
+  if (hint.textContent !== text) hint.textContent = text;
+  btnD.classList.toggle('nudge', !dHeld && (game.phase === 'dead' || game.phase === 'quarterEnd'));
+}
+
 // ---------- main loop ----------
 
 let last = performance.now();
@@ -157,6 +185,7 @@ function frame(now) {
   game.advance(dt);
   for (const event of game.drainEvents()) sound.play(event);
   display.render(game.view(), Math.floor(now / 125) % 2 === 0);
+  updateHint();
   requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);
