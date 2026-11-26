@@ -1,6 +1,6 @@
-import { Game } from './engine.js';
-import { Display } from './display.js';
-import { Sound } from './sound.js';
+import { Game } from './engine.js?v=9';
+import { Display } from './display.js?v=9';
+import { Sound } from './sound.js?v=9';
 
 const game = new Game();
 const display = new Display(document.getElementById('display'));

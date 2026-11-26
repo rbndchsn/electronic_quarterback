@@ -2,7 +2,7 @@
 // Pure state machine: no DOM, no timers, no audio. Time enters through advance(ms),
 // randomness through the injected rng, and sound leaves as named events.
 
-import { TUNING } from './tuning.js';
+import { TUNING } from './tuning.js?v=9';
 
 export const COLS = 9;
 export const ROWS = 4;

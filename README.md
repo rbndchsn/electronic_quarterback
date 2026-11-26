@@ -38,3 +38,7 @@ Estimated, and held in `src/tuning.js`: how fast and how cleverly the defense mo
 # References
 
 1. Coleco Industries, Inc. *Electronic Quarterback Game Instructions*, Guide No. 76660A, Model No. 2020. Amsterdam, N.Y., 1978.
+
+# Releasing a change
+
+Browsers keep old copies of the script and style files for a while. Every file link carries a version number (`?v=9`) so a new release loads fresh files. When you change any file in `src/` or `style.css`, raise that number everywhere it appears in `index.html`, `details.html` and the `import` lines in `src/`.

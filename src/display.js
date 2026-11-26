@@ -2,7 +2,7 @@
 // bars below it. The four player rows are the digit's top bar, its bottom bar and
 // the two extra bars, so the field and the numbers share the same lights.
 
-import { COLS } from './engine.js';
+import { COLS } from './engine.js?v=9';
 
 const NS = 'http://www.w3.org/2000/svg';
 const COL_W = 100;
