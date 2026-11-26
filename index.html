@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Emu Retro Football</title>
+  <meta name="description" content="A free browser game that plays like a 1978 LED handheld football game. You run the offense; the computer plays defense.">
+  <meta name="theme-color" content="#161a26">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Crect width=%2716%27 height=%2716%27 rx=%273%27 fill=%27%23161a26%27/%3E%3Crect x=%273%27 y=%277%27 width=%2710%27 height=%272.5%27 rx=%271.2%27 fill=%27%23ff3b30%27/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <section class="device" aria-label="Emu Retro Football handheld">
+      <div class="screen">
+        <div class="legend" aria-hidden="true">
+          <span>Down</span><span>Yards to go</span><span>Field pos.</span>
+          <span>Home</span><span>Time remaining</span><span>Visitor</span>
+        </div>
+        <svg id="display" role="img" aria-label="LED display"></svg>
+      </div>
+
+      <h1 class="brand"><span>Emu</span> Retro Football</h1>
+
+      <div class="controls">
+        <button id="btn-up" class="key key-move" aria-label="Move up">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l8 12H4z"/></svg>
+        </button>
+
+        <div class="switch" role="radiogroup" aria-label="Play selector">
+          <button role="radio" aria-checked="true" data-selector="run">Run<br>Kick</button>
+          <button role="radio" aria-checked="false" data-selector="pass">Pass</button>
+        </div>
+
+        <button id="btn-kp" class="key key-action" aria-label="Kick or pass">K/P</button>
+
+        <button id="btn-down" class="key key-move" aria-label="Move down">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19L4 7h16z"/></svg>
+        </button>
+
+        <div class="switch switch-3" role="radiogroup" aria-label="Power and skill">
+          <button role="radio" aria-checked="true" data-skill="0">Off</button>
+          <button role="radio" aria-checked="false" data-skill="1">1</button>
+          <button role="radio" aria-checked="false" data-skill="2">2</button>
+        </div>
+
+        <button id="btn-fwd" class="key key-move" aria-label="Move downfield">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12l7-6v4h6V6l7 6-7 6v-4H9v4z"/></svg>
+        </button>
+
+        <span class="cap cap-skill" aria-hidden="true">Skill</span>
+        <button id="btn-d" class="key key-action key-d" aria-label="Display: hold to show status">D</button>
+        <span class="cap cap-d" aria-hidden="true">Display</span>
+      </div>
+    </section>
+
+    <p class="start-hint">Slide the switch to <strong>1</strong> (beginner) or <strong>2</strong> (pro) to power on.</p>
+    <button id="btn-mute" class="mute" aria-pressed="false">Sound on</button>
+    <p id="announce" class="sr-only" aria-live="polite"></p>
+
+    <section class="help">
+      <details open>
+        <summary>How to play</summary>
+        <p>You always play offense. The computer always plays defense. Home drives left to right; Visitor drives right to left. With two players, pass the game over when possession changes.</p>
+        <ul>
+          <li><strong>Lights:</strong> the blinking bright light is the ball carrier, steady bright lights are your blockers and receiver, dim lights are the defense.</li>
+          <li><strong>Run:</strong> set the selector to Run/Kick. The carrier and two blockers move together, one step per key press. A blocker that hits a tackler takes him out, and both disappear.</li>
+          <li><strong>Pass:</strong> set the selector to Pass. Only the receiver moves. Get him into the quarterback's row with no defender in front of him, then press K/P.</li>
+          <li><strong>Kick:</strong> on 4th down only, in Run/Kick, press K/P before moving. A missed field goal is a punt.</li>
+          <li><strong>Yardage:</strong> your first two steps forward only cancel a 2-yard loss. The window is 9 yards and wraps around, so keep running.</li>
+          <li><strong>After every play:</strong> hold D to see down, yards to go and field position, then release to line up again. Hold D again to see the score and clock.</li>
+          <li><strong>Scoring:</strong> touchdown 7, field goal 3, safety 2. Four quarters of 15 game minutes; the clock runs only during a play.</li>
+        </ul>
+        <table>
+          <caption>Keyboard</caption>
+          <tbody>
+            <tr><th scope="row">Up / down</th><td><kbd>↑</kbd> <kbd>↓</kbd></td></tr>
+            <tr><th scope="row">Downfield</th><td><kbd>→</kbd> or <kbd>←</kbd></td></tr>
+            <tr><th scope="row">Kick / pass</th><td><kbd>Space</kbd></td></tr>
+            <tr><th scope="row">Display (hold)</th><td><kbd>D</kbd> or <kbd>Enter</kbd></td></tr>
+            <tr><th scope="row">Run / pass selector</th><td><kbd>R</kbd> <kbd>P</kbd></td></tr>
+            <tr><th scope="row">Off / skill 1 / skill 2</th><td><kbd>0</kbd> <kbd>1</kbd> <kbd>2</kbd></td></tr>
+            <tr><th scope="row">Sound</th><td><kbd>M</kbd></td></tr>
+          </tbody>
+        </table>
+      </details>
+      <p class="credit">An original, free, fan-made game that plays like a 1978 LED handheld football game. Not affiliated with or endorsed by any toy maker.</p>
+    </section>
+  </main>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

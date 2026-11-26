@@ -1,0 +1,10 @@
+{
+  "name": "emu-retro-football",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Free browser game that plays like a 1978 LED handheld football game",
+  "scripts": {
+    "test": "node --test"
+  }
+}
