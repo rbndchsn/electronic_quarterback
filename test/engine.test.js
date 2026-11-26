@@ -293,3 +293,40 @@ test('the visitor formation is mirrored and drives right to left', () => {
   g.move('fwd');
   assert.equal(g.view().cells.find((c) => c.blink).c, 7);
 });
+
+test('pass defenders trail the receiver on the goal-line side; they never aim in front of him', () => {
+  const g = newGame();
+  g.setSelector('pass');
+  for (const col of [1, 2, 4, 6]) {
+    g.play.receiver = { c: col, r: 2 };
+    for (const d of g.play.defenders.filter((x) => x.role === 'pd')) {
+      const t = g.guardTarget(d);
+      assert.ok(t.c > col, `receiver at ${col}, defender aims at ${t.c}`);
+      assert.equal(t.r, g.play.qb.r);
+    }
+  }
+});
+
+test('pass: stepping into the quarterback row and throwing is a completion even after the defense has had time to react', () => {
+  let completions = 0;
+  let attempts = 0;
+  for (let seed = 1; seed <= 200; seed++) {
+    let x = seed * 9973;
+    const rng = () => ((x = (x * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff);
+    const g = new Game({ rng });
+    g.setSkill(1);
+    g.setSelector('pass');
+    g.move('fwd');
+    g.advance(1500); // hesitate
+    if (g.phase !== 'live') continue; // sacked while waiting
+    g.move('up');
+    if (g.play.receiver.r !== g.play.qb.r) continue; // a rusher took that cell
+    attempts++;
+    g.kickPass();
+    g.advance(1000);
+    assert.equal(g.offense, 'home', 'a receiver in line must never be intercepted from in front');
+    if (g.play.carrier) completions++;
+  }
+  assert.ok(attempts > 30);
+  assert.equal(completions, attempts);
+});

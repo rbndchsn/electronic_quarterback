@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Game Details · Emu Retro Football</title>
+  <meta name="description" content="Complete rules and play guide for Emu Retro Football.">
+  <meta name="theme-color" content="#161a26">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Crect width=%2716%27 height=%2716%27 rx=%273%27 fill=%27%23161a26%27/%3E%3Crect x=%273%27 y=%277%27 width=%2710%27 height=%272.5%27 rx=%271.2%27 fill=%27%23ff3b30%27/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="doc">
+    <p><a class="pill" href="./">← Back to the game</a></p>
+    <h1 class="brand doc-title"><span>Emu</span> Retro Football</h1>
+    <p class="lede">Game details: everything about how the game plays.</p>
+
+    <nav aria-label="On this page">
+      <ul class="toc">
+        <li><a href="#basics">The basics</a></li>
+        <li><a href="#controls">Controls</a></li>
+        <li><a href="#screen">Reading the screen</a></li>
+        <li><a href="#flow">How a play goes</a></li>
+        <li><a href="#run">Running plays</a></li>
+        <li><a href="#pass">Passing plays</a></li>
+        <li><a href="#kick">Kicking</a></li>
+        <li><a href="#yards">Yardage and downs</a></li>
+        <li><a href="#scoring">Scoring and kickoffs</a></li>
+        <li><a href="#clock">Clock and quarters</a></li>
+        <li><a href="#sounds">Sounds</a></li>
+        <li><a href="#skill">Skill levels</a></li>
+        <li><a href="#origin">Where the rules come from</a></li>
+      </ul>
+    </nav>
+
+    <h2 id="basics">The basics</h2>
+    <ul>
+      <li>You always play offense. The computer always plays defense. You never control the defense.</li>
+      <li>There are two teams, Home and Visitor. When the ball changes hands, you (or a friend) play offense for the other team.</li>
+      <li>Home drives left to right. Visitor drives right to left.</li>
+      <li>You have four downs to gain ten yards. Gain them and you get four more.</li>
+    </ul>
+
+    <h2 id="controls">Controls</h2>
+    <table>
+      <thead><tr><th scope="col">Control</th><th scope="col">What it does</th><th scope="col">Key</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Off / 1 / 2 switch</th><td>Power and skill level. Off then on starts a new game.</td><td><kbd>0</kbd> <kbd>1</kbd> <kbd>2</kbd></td></tr>
+        <tr><th scope="row">Up and down arrows</th><td>Move one row up or down.</td><td><kbd>↑</kbd> <kbd>↓</kbd></td></tr>
+        <tr><th scope="row">Double arrow</th><td>Move one yard downfield. There is no moving backwards.</td><td><kbd>→</kbd> or <kbd>←</kbd></td></tr>
+        <tr><th scope="row">Run/Kick · Pass switch</th><td>Chooses the formation for the next play.</td><td><kbd>R</kbd> <kbd>P</kbd></td></tr>
+        <tr><th scope="row">K/P</th><td>Throws the pass, or kicks on 4th down.</td><td><kbd>Space</kbd></td></tr>
+        <tr><th scope="row">D (Display)</th><td>Hold to read the status. After a play, hold and release to line up the next play.</td><td><kbd>D</kbd> or <kbd>Enter</kbd></td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="screen">Reading the screen</h2>
+    <p>The screen is a 9-yard window of the field, four rows deep. Each player is one red light.</p>
+    <ul class="key-list">
+      <li><span class="led led-blink"></span> Bright and blinking: the player with the ball.</li>
+      <li><span class="led"></span> Bright and steady: your blockers and your receiver.</li>
+      <li><span class="led led-dim"></span> Dim: the defense. All defenders look the same.</li>
+    </ul>
+    <p>Holding D replaces the field with numbers. The first hold shows the top line of labels, the next hold shows the bottom line:</p>
+    <table>
+      <thead><tr><th scope="col">Reading</th><th scope="col">Meaning</th></tr></thead>
+      <tbody>
+        <tr><th scope="row"><code>3  9 u 25</code></th><td>3rd down, 9 yards to go, ball on your own 25 (75 yards from a touchdown).</td></tr>
+        <tr><th scope="row"><code>3  9 d 25</code></th><td>3rd down, 9 yards to go, ball on the defense's 25 (25 yards from a touchdown).</td></tr>
+        <tr><th scope="row"><code>14 11.9 07</code></th><td>Home 14, 11.9 minutes left in the quarter, Visitor 7.</td></tr>
+      </tbody>
+    </table>
+    <p><code>u</code> means you are on your own side of the 50 and the number counts up as you advance. <code>d</code> means you are on the defense's side and it counts down.</p>
+
+    <h2 id="flow">How a play goes</h2>
+    <ol>
+      <li>Set the Run/Kick · Pass switch. The formation appears.</li>
+      <li>Press any move key. The play starts, the clock runs and the defense comes at you.</li>
+      <li>The play ends with a whistle. Only the ball carrier is left on screen, blinking where he went down.</li>
+      <li>Hold D to read the new down and field position, then release. The teams line up again.</li>
+    </ol>
+    <p>Nothing happens after a play until you hold and release D.</p>
+
+    <h2 id="run">Running plays</h2>
+    <div class="field" data-marks="0,1,ball 1,0,on 1,2,on 3,1,dim 3,2,dim 4,0,dim 4,3,dim 6,1,dim 8,1,dim" aria-label="Run formation: ball carrier at the left, two blockers one step ahead above and below him, six defenders downfield"></div>
+    <p class="caption">Run formation, Home team. The ball carrier blinks at the left; his two blockers are one step ahead, one row up and one row down.</p>
+    <ul>
+      <li>The ball carrier and both blockers move together, one step per key press.</li>
+      <li>A blocker and a tackler that meet are both removed from the field.</li>
+      <li>A tackler that reaches the ball carrier ends the play. So does running into one.</li>
+      <li>The window is only 9 yards. Run off the far edge and you come back in at the near edge, still on the same play.</li>
+    </ul>
+    <p><strong>Tip:</strong> a tackler starts straight ahead of you, so running straight gains almost nothing. Change rows so that a blocker, not you, meets him.</p>
+
+    <h2 id="pass">Passing plays</h2>
+    <div class="field" data-marks="0,1,ball 1,1,on 1,2,on 3,1,dim 3,2,dim 4,0,dim 4,3,dim 6,1,dim 8,1,dim" aria-label="Pass formation: quarterback at the left, a blocker in front of him, the receiver below the blocker, four rushers and two deep defenders"></div>
+    <p class="caption">Pass formation, Home team. The quarterback blinks at the left with a blocker in front of him. The receiver is the bright light one row below the blocker.</p>
+    <ul>
+      <li>The quarterback and his blocker do not move. You move only the receiver.</li>
+      <li>The receiver cannot be tackled, and he cannot step into a cell that another player is in.</li>
+      <li>Four defenders (five on skill 2) rush the quarterback. The two deepest defenders cover the receiver.</li>
+      <li>Press K/P to throw at any time. The ball flies straight along the quarterback's row.</li>
+      <li>Only three players can catch it: your receiver and the two deep defenders. The nearest of them in that row gets it.</li>
+    </ul>
+    <table>
+      <thead><tr><th scope="col">When you throw</th><th scope="col">Result</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Receiver is in the quarterback's row, with no deep defender between them</th><td>Complete. He becomes the ball carrier and you run with him.</td></tr>
+        <tr><th scope="row">A deep defender is in that row, closer to the quarterback than your receiver</th><td>Intercepted. The other team takes over at that spot.</td></tr>
+        <tr><th scope="row">Receiver is not in that row, and a deep defender is</th><td>Intercepted.</td></tr>
+        <tr><th scope="row">Nobody who can catch is in that row</th><td>Incomplete. You lose the down; the ball does not move.</td></tr>
+        <tr><th scope="row">A rusher reaches the quarterback before you throw</th><td>Sack: a 2-yard loss.</td></tr>
+      </tbody>
+    </table>
+    <div class="field" data-marks="0,1,ball 1,1,on 4,1,on 2,1,dim 3,3,dim 3,0,dim 4,2,dim 5,1,dim 8,1,dim" aria-label="A good moment to throw: the receiver is in the quarterback's row four yards downfield, with the deep defender behind him"></div>
+    <p class="caption">A good moment to throw. The receiver has looped under the rush and stepped up into the quarterback's row. The deep defender is behind him, on the goal-line side, so the pass is complete. The dim light between quarterback and receiver is a rusher, who cannot catch the ball.</p>
+    <p><strong>Tips:</strong></p>
+    <ul>
+      <li>Never throw at the snap. The receiver starts out of line, so the ball goes to a deep defender.</li>
+      <li>The quickest completion is forward once, up once, then K/P. It is a short catch, and you still need to run.</li>
+      <li>The deep defenders follow the receiver from behind. Do not run him past them, or they will be in front of him when you throw.</li>
+      <li>A rusher standing in the quarterback's row cannot catch the ball. It passes him.</li>
+    </ul>
+
+    <h2 id="kick">Kicking</h2>
+    <ul>
+      <li>You can kick on 4th down only, with the switch on Run/Kick. Press K/P before you move.</li>
+      <li>The closer you are to the goal line, the better the chance of a field goal. From far away it cannot be made.</li>
+      <li>A kick that is not a field goal is a punt. The other team takes over farther downfield.</li>
+    </ul>
+
+    <h2 id="yards">Yardage and downs</h2>
+    <p>Every play starts 2 yards in the hole. Your first two steps forward only cancel that.</p>
+    <table>
+      <thead><tr><th scope="col">Steps forward before the tackle</th><th scope="col">Result</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">0</th><td>2-yard loss</td></tr>
+        <tr><th scope="row">1</th><td>1-yard loss</td></tr>
+        <tr><th scope="row">2</th><td>No gain</td></tr>
+        <tr><th scope="row">3 or more</th><td>Steps minus 2, in yards gained</td></tr>
+        <tr><th scope="row">Across the whole window once</th><td>6 yards</td></tr>
+        <tr><th scope="row">Each further crossing on the same play</th><td>9 more yards</td></tr>
+      </tbody>
+    </table>
+    <ul>
+      <li>On a pass, the receiver's distance from the line when he catches it counts the same way, and then every step he runs adds a yard.</li>
+      <li>Gain 10 yards within four downs for a new first down.</li>
+      <li>Fall short on 4th down and the other team takes over where the play ended.</li>
+    </ul>
+
+    <h2 id="scoring">Scoring and kickoffs</h2>
+    <table>
+      <thead><tr><th scope="col">Score</th><th scope="col">Points</th><th scope="col">How</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Touchdown</th><td>7</td><td>Carry the ball past the goal line. No end zone is drawn; the tune tells you.</td></tr>
+        <tr><th scope="row">Field goal</th><td>3</td><td>A successful 4th-down kick.</td></tr>
+        <tr><th scope="row">Safety</th><td>2</td><td>You lose yardage into your own end zone. The other team gets the points and the ball at its 20.</td></tr>
+      </tbody>
+    </table>
+    <p>After a score the kickoff happens off screen. Usually the receiving team starts first-and-ten at its own 20. Now and then the kick is short, and the first play is a run back.</p>
+
+    <h2 id="clock">Clock and quarters</h2>
+    <ul>
+      <li>A game is four quarters of 15 game minutes. These are not real minutes.</li>
+      <li>The clock runs only while a play is live.</li>
+      <li>When a quarter ends, the score and time appear by themselves. Hold and release D to go on.</li>
+      <li>Home receives to start the game. Visitor receives to start the second half.</li>
+      <li>After the fourth quarter the game locks on the final score. Switch off, then on, for a new game.</li>
+    </ul>
+
+    <h2 id="sounds">Sounds</h2>
+    <table>
+      <thead><tr><th scope="col">Sound</th><th scope="col">Meaning</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Ticking</th><td>The clock is running.</td></tr>
+        <tr><th scope="row">One whistle</th><td>The play is over.</td></tr>
+        <tr><th scope="row">Three short whistles</th><td>Turnover: the other team has the ball.</td></tr>
+        <tr><th scope="row">Short tune</th><td>A team has scored.</td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="skill">Skill levels</h2>
+    <table>
+      <thead><tr><th scope="col">Switch</th><th scope="col">Defenders</th><th scope="col">Speed</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">1 (beginner)</th><td>6</td><td>Slower</td></tr>
+        <tr><th scope="row">2 (pro)</th><td>7</td><td>Faster</td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="origin">Where the rules come from</h2>
+    <p>Emu Retro Football is an original, free, fan-made game. Its rules follow the published instructions of a 1978 LED handheld football game. It uses no code, artwork, name or logo from that product and is not affiliated with or endorsed by any toy maker.</p>
+    <p>Those instructions do not say how fast or how cleverly the defense moves, the odds of a field goal, how far a punt goes, or how fast the clock runs. Those parts are estimates and may be adjusted as the game is tuned.</p>
+
+    <p><a class="pill" href="./">← Back to the game</a></p>
+  </main>
+  <script type="module" src="src/details.js"></script>
+</body>
+</html>

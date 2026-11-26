@@ -270,16 +270,13 @@ export class Game {
     }
   }
 
-  // Where a pass defender wants to stand before the throw.
+  // Where a pass defender wants to stand before the throw: in the quarterback's row,
+  // on the goal-line side of the receiver. They trail him; they never step in front.
   guardTarget(d) {
     const p = this.play;
-    const rec = p.receiver;
-    const row = p.qb.r;
     const deep = p.defenders.filter((x) => x.alive && x.role === 'pd').sort((a, b) => a.c - b.c);
-    const isNear = deep[0] === d;
-    if (!isNear) return { c: clamp(rec.c + 1, 2, COLS - 1), r: row };
-    if (rec.r === row) return { c: clamp(rec.c - 1, 2, COLS - 1), r: row }; // cut in front
-    return { c: clamp(rec.c, 2, COLS - 1), r: row }; // shadow his column
+    const depth = deep[0] === d ? 1 : 3;
+    return { c: clamp(p.receiver.c + depth, 2, COLS - 1), r: p.qb.r };
   }
 
   stepDefender(d, target) {

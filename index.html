@@ -56,7 +56,10 @@
 
     <p id="hint" class="start-hint" aria-live="polite">Slide the switch to 1 (beginner) or 2 (pro) to power on.</p>
     <p class="key-hint">Keyboard: <kbd>1</kbd>/<kbd>2</kbd> power on · <kbd>↑</kbd> <kbd>↓</kbd> <kbd>→</kbd> move · <kbd>Space</kbd> kick/pass · hold <kbd>D</kbd> display · <kbd>R</kbd>/<kbd>P</kbd> run/pass</p>
-    <button id="btn-mute" class="mute" aria-pressed="false">Sound on</button>
+    <div class="actions">
+      <a class="pill pill-strong" href="details.html">Game Details</a>
+      <button id="btn-mute" class="pill" aria-pressed="false">Sound on</button>
+    </div>
     <p id="announce" class="sr-only" aria-live="polite"></p>
 
     <section class="help">
@@ -66,7 +69,7 @@
         <ul>
           <li><strong>Lights:</strong> the blinking bright light is the ball carrier, steady bright lights are your blockers and receiver, dim lights are the defense.</li>
           <li><strong>Run:</strong> set the selector to Run/Kick. The carrier and two blockers move together, one step per key press. A blocker that hits a tackler takes him out, and both disappear.</li>
-          <li><strong>Pass:</strong> set the selector to Pass. Only the receiver moves. Get him into the quarterback's row with no defender in front of him, then press K/P.</li>
+          <li><strong>Pass:</strong> set the selector to Pass. Only the receiver moves. Step him up into the quarterback's row, then press K/P. Throw while he is out of line and a deep defender intercepts.</li>
           <li><strong>Kick:</strong> on 4th down only, in Run/Kick, press K/P before moving. A missed field goal is a punt.</li>
           <li><strong>Yardage:</strong> your first two steps forward only cancel a 2-yard loss. The window is 9 yards and wraps around, so keep running.</li>
           <li><strong>After every play:</strong> the ball carrier blinks alone where he went down. Hold D to see down, yards to go and field position, then release to line up the next play. Hold D again to see the score and clock.</li>
@@ -85,6 +88,7 @@
           </tbody>
         </table>
       </details>
+      <p>For the full rules, diagrams and tips, open <a href="details.html">Game Details</a>.</p>
       <p class="credit">An original, free, fan-made game that plays like a 1978 LED handheld football game. Not affiliated with or endorsed by any toy maker.</p>
     </section>
   </main>

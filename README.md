@@ -3,9 +3,9 @@ title: Emu_Retro_Football
 subtitle: A free browser game that plays like a 1978 LED handheld football game
 author: Robin
 date: 2026-11-25
-version: 0.1.0
+version: 0.2.0
 status: First playable build, defense and odds not yet tuned
-source_files: index.html, style.css, src/engine.js, src/tuning.js, src/display.js, src/sound.js, src/main.js, test/engine.test.js
+source_files: index.html, details.html, style.css, src/engine.js, src/tuning.js, src/display.js, src/sound.js, src/main.js, test/engine.test.js
 ---
 
 # What this is
