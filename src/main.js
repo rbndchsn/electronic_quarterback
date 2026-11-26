@@ -96,8 +96,12 @@ const keyMap = {
 };
 const keyButton = { up: 'btn-up', down: 'btn-down', fwd: 'btn-fwd', kp: 'btn-kp' };
 
+const gameKeys = new Set([...Object.keys(keyMap), 'KeyD', 'Enter', 'KeyR', 'KeyP', 'Digit0', 'Digit1', 'Digit2', 'KeyM']);
+
 window.addEventListener('keydown', (e) => {
   if (e.metaKey || e.ctrlKey || e.altKey) return;
+  // A button clicked earlier keeps focus; drop it so Space or Enter drives the game, not that button.
+  if (gameKeys.has(e.code) && document.activeElement instanceof HTMLButtonElement) document.activeElement.blur();
   if (e.code === 'KeyD' || e.code === 'Enter') {
     e.preventDefault();
     if (!e.repeat) displayDown();
@@ -118,6 +122,7 @@ window.addEventListener('keydown', (e) => {
   else if (e.code === 'KeyM') toggleMute();
 });
 window.addEventListener('keyup', (e) => {
+  if (e.code === 'Space') e.preventDefault();
   if (e.code === 'KeyD' || e.code === 'Enter') displayUp();
 });
 window.addEventListener('blur', displayUp);

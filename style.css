@@ -173,6 +173,9 @@ main {
 .start-hint { text-align: center; color: var(--muted); margin: 1.1rem 0 0.6rem; }
 .start-hint strong { color: var(--ink); }
 
+.key-hint { text-align: center; color: var(--muted); font-size: 0.85rem; line-height: 2; margin: 0 0 0.9rem; }
+@media (hover: none) and (pointer: coarse) { .key-hint { display: none; } }
+
 .mute {
   display: block;
   margin: 0 auto 1.25rem;
