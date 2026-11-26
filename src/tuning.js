@@ -6,11 +6,11 @@ export const TUNING = {
   msPerClockTenth: 600,
 
   // How often the defense gets a turn (ms), per skill level.
-  defenderIntervalMs: { 1: 600, 2: 440 },
+  defenderIntervalMs: { 1: 900, 2: 560 },
   // Chance that a given tackler steps on a defensive turn, per skill level.
-  defenderMoveProb: { 1: 0.45, 2: 0.5 },
+  defenderMoveProb: { 1: 0.38, 2: 0.48 },
   // Chance that a pass defender steps on a defensive turn before the throw.
-  passDefenderMoveProb: { 1: 0.4, 2: 0.55 },
+  passDefenderMoveProb: { 1: 0.28, 2: 0.45 },
 
   // Pass and kick animation speed (ms per yard column).
   flightStepMs: 70,
