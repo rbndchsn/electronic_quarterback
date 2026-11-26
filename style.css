@@ -1,13 +1,13 @@
 :root {
-  --page: #0e1118;
-  --body: #232a3b;
-  --body-edge: #171c29;
-  --panel: #1a2030;
-  --ink: #e8ecf5;
-  --muted: #9aa5bd;
-  --accent: #ffb020;
-  --move: #2f7de1;
-  --action: #f0562e;
+  --page: #14100c;
+  --body: #6b4226;
+  --body-edge: #3d2412;
+  --panel: #1d1712;
+  --ink: #f1e6d0;
+  --muted: #b3a48a;
+  --accent: #e0a526;
+  --move: #d9a31f;
+  --action: #c2501c;
   --led: #ff3b30;
   color-scheme: dark;
 }
@@ -17,7 +17,7 @@
 body {
   margin: 0;
   min-height: 100dvh;
-  background: radial-gradient(circle at 50% 0, #1b2233, var(--page) 60%);
+  background: radial-gradient(circle at 50% 0, #2a1f15, var(--page) 60%);
   color: var(--ink);
   font-family: ui-rounded, "Avenir Next", "Segoe UI", system-ui, sans-serif;
   -webkit-tap-highlight-color: transparent;
@@ -32,7 +32,9 @@ main {
 /* ---------- the handheld ---------- */
 
 .device {
-  background: linear-gradient(160deg, #2c3550, var(--body) 45%, var(--body-edge));
+  background:
+    repeating-linear-gradient(92deg, #0000 0 7px, #00000022 7px 8px, #0000 8px 19px, #ffffff0d 19px 20px),
+    linear-gradient(160deg, #8a5a34, var(--body) 45%, var(--body-edge));
   border-radius: 2rem 2rem 2.75rem 2.75rem;
   padding: 1rem 1rem 1.5rem;
   box-shadow: 0 1.5rem 3rem #0009, inset 0 2px 0 #ffffff1f, inset 0 -6px 0 #0005;
@@ -45,7 +47,7 @@ main {
   background: #05070b;
   border-radius: 1rem;
   padding: 0.5rem;
-  box-shadow: inset 0 0 0 2px #000, 0 0 0 3px #3a4563;
+  box-shadow: inset 0 0 0 2px #000, 0 0 0 4px #b9b6ae, 0 0 0 5px #6f6c66;
 }
 
 .legend {
@@ -71,8 +73,8 @@ main {
   border-radius: 0.5rem;
 }
 .glass { fill: #0a0405; }
-.endzone-bg { fill: #10151f; }
-.endzone-stripe { fill: #25407a; }
+.endzone-bg { fill: #17120c; }
+.endzone-stripe { fill: #7a5a14; }
 .yardline { stroke: #ffffff2e; stroke-width: 2; }
 
 .seg { fill: #ff3b300a; }
@@ -121,7 +123,8 @@ main {
   touch-action: none;
 }
 .key svg { width: 2.2rem; height: 2.2rem; fill: none; stroke: #fff; stroke-width: 2.2; stroke-linejoin: round; }
-.key-move { background: var(--move); }
+.key-move { background: var(--move); color: #2a1c08; }
+.key-move svg { stroke: #2a1c08; }
 .key-action { background: var(--action); }
 .key:active, .key.pressed { transform: translateY(4px); box-shadow: 0 1px 0 #0007, inset 0 2px 0 #ffffff40; }
 .key-d { grid-column: 2; width: 3.5rem; height: 3.5rem; }
@@ -138,7 +141,7 @@ main {
 
 .switch {
   display: flex;
-  background: #0b0e15;
+  background: #0d0a07;
   border-radius: 0.7rem;
   padding: 3px;
   gap: 3px;
@@ -161,8 +164,8 @@ main {
   cursor: pointer;
 }
 .switch button[aria-checked="true"] {
-  background: linear-gradient(#f4f6fb, #b9c1d4);
-  color: #10141d;
+  background: linear-gradient(#e9e7e1, #a9a69e);
+  color: #1a140d;
   box-shadow: 0 2px 0 #0008;
 }
 
@@ -184,7 +187,7 @@ main {
   align-items: center;
   min-height: 2.75rem;
   padding: 0.4rem 1.1rem;
-  border: 1px solid #3a4563;
+  border: 1px solid #5a4a38;
   border-radius: 999px;
   background: transparent;
   color: var(--ink);
@@ -196,22 +199,22 @@ main {
 .pill-strong { background: var(--accent); border-color: var(--accent); color: #17130a; font-weight: 800; }
 .help a, .doc a:not(.pill) { color: var(--accent); }
 
-.help { color: #c9d1e3; line-height: 1.55; }
+.help { color: #d9ccb4; line-height: 1.55; }
 .help summary { font-weight: 800; font-size: 1.05rem; cursor: pointer; padding: 0.4rem 0; color: var(--ink); }
 .help ul { padding-left: 1.1rem; }
 .help li { margin-bottom: 0.45rem; }
 .help table { border-collapse: collapse; width: 100%; margin-top: 0.75rem; }
 .help caption { text-align: left; font-weight: 800; color: var(--ink); padding-bottom: 0.3rem; }
-.help th, .help td { text-align: left; padding: 0.35rem 0; border-top: 1px solid #2a3145; font-weight: 400; }
+.help th, .help td { text-align: left; padding: 0.35rem 0; border-top: 1px solid #3a2f24; font-weight: 400; }
 .help td { text-align: right; white-space: nowrap; }
 kbd {
   display: inline-block;
   min-width: 1.6rem;
   padding: 0.05rem 0.4rem;
-  border: 1px solid #46516d;
+  border: 1px solid #6a5a45;
   border-bottom-width: 2px;
   border-radius: 0.35rem;
-  background: #1a2030;
+  background: #221a13;
   font: 0.85rem ui-monospace, monospace;
   text-align: center;
 }
@@ -241,13 +244,13 @@ kbd {
 
 /* ---------- details page ---------- */
 
-.doc { max-width: 44rem; color: #c9d1e3; line-height: 1.6; }
+.doc { max-width: 44rem; color: #d9ccb4; line-height: 1.6; }
 .doc-title { text-align: left; font-size: 1.5rem; margin-bottom: 0.2rem; }
 .lede { font-size: 1.1rem; color: var(--ink); margin-top: 0; }
-.doc h2 { color: var(--ink); font-size: 1.25rem; margin: 2.2rem 0 0.6rem; padding-top: 0.6rem; border-top: 1px solid #2a3145; }
+.doc h2 { color: var(--ink); font-size: 1.25rem; margin: 2.2rem 0 0.6rem; padding-top: 0.6rem; border-top: 1px solid #3a2f24; }
 .doc li { margin-bottom: 0.4rem; }
 .doc table { border-collapse: collapse; width: 100%; margin: 0.75rem 0 1rem; }
-.doc th, .doc td { text-align: left; vertical-align: top; padding: 0.45rem 0.6rem 0.45rem 0; border-top: 1px solid #2a3145; }
+.doc th, .doc td { text-align: left; vertical-align: top; padding: 0.45rem 0.6rem 0.45rem 0; border-top: 1px solid #3a2f24; }
 .doc thead th { color: var(--muted); font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; border-top: 0; }
 .doc tbody th { color: var(--ink); font-weight: 600; }
 .doc code { font: 0.95rem ui-monospace, monospace; white-space: pre; color: #ff8a80; }
@@ -261,7 +264,7 @@ kbd {
   grid-template-columns: repeat(9, 1fr);
   max-width: 26rem;
   background: #0a0405;
-  border: 2px solid #3a4563;
+  border: 2px solid #5a4a38;
   border-radius: 0.5rem;
   overflow: hidden;
 }
