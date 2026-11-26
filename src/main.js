@@ -10,8 +10,8 @@ const $ = (id) => document.getElementById(id);
 
 // ---------- switches ----------
 
-function setSkill(n) {
-  sound.unlock();
+function setSkill(n, silent = false) {
+  if (!silent) sound.unlock();
   game.setSkill(n);
   for (const b of document.querySelectorAll('[data-skill]')) {
     b.setAttribute('aria-checked', String(Number(b.dataset.skill) === n));
@@ -154,12 +154,12 @@ const hint = $('hint');
 function hintText() {
   switch (game.phase) {
     case 'off':
-      return 'Slide the switch to 1 (beginner) or 2 (pro) to power on.';
+      return 'Switched off. Slide the switch to 1 (beginner) or 2 (pro) to play.';
     case 'ready':
       if (game.play.type === 'pass') return 'Move the receiver into the quarterback\'s row, then press K/P to throw.';
       if (game.play.type === 'runback') return 'Short kickoff: press a move key to run it back.';
       if (game.down === 4) return '4th down: press K/P to kick, or press a move key to run.';
-      return 'Press a move key to start the play.';
+      return 'Press a move key (↑ ↓ →) to start the play.';
     case 'dead':
       return dHeld ? 'Release D to line up the next play.' : 'Play over. Hold D, then release, to line up the next play.';
     case 'quarterEnd':
@@ -189,6 +189,10 @@ function frame(now) {
   requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);
+
+// The game opens switched on at skill 1 so a first-time player can start at once.
+// (Sound starts with the first key press or tap; browsers require that.)
+setSkill(1, true);
 
 // test hook
 window.__game = game;
